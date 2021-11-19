@@ -1,0 +1,7 @@
+/* This file contains any css that is used to adjust specific display of a language (i.e. smaller text o nbuttosn etc. */
+/* Put ALL such adaptations here! */
+
+/* exampel for smaller font on start menu button when using Russian */
+#gameContent.lang-ru #dynamicDOM .popup-holder[data-type="main_menu"] .popup-content .menu-button[data-type="start_game"] {
+    font: 12px/40px 'titilliumWebBold';
+}

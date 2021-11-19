@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Simpocalypse - a Post-Apocalyptic Civilization Simulator</title>
+    <meta name="author" content="Gamex Studio" />
+    <meta name="keywords" content="Gamex Studio, Simpocalypse, post-apocalyptic, civilization simulator incremental, incremental game, idle, idle game" />
+    <meta name="viewport" content="user-scalable=0, minimal-ui, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="description" content="This is GAMEX STUDIO d.o.o. game engine" />
+
+   
+
+    <link type="text/css" rel="stylesheet" href="assets/styles/common.css?v=46" />
+    <link type="text/css" rel="stylesheet" href="assets/styles/main.css?v=52" />
+    <link type="text/css" rel="stylesheet" href="assets/fonts/font_setup.css" />
+    <link type="text/css" rel="stylesheet" href="assets/styles/langs.css?v6" />
+
+    <!-- libraries etc -->
+
+
+    <script type="text/javascript">
+        var assetPath = '';
+        var elApp, appWindow;
+
+        window.onload = function() {
+            console.log("testing EMCA6 start");
+            try {
+                new Function("(a = 0) => a");
+                console.log("EMCA6 feature works properly");
+            } catch (err) {
+                console.log("EMCA6 feature issue!! " + err);
+                var compatibilityIssue = '<div class="compatibility-issues">Unfortunately your browser has some compatibility issues to run this game<br /><br /> We suggest to play the game via FireFox or Chromium based browsers where it works best!<br /><br /> Thank you for understanding ;)</div>';
+                // $('html').append(compatibilityIssue);
+                document.body.innerHTML = document.body.innerHTML + compatibilityIssue;
+            }
+            console.log("testing EMCA6 end");
+        };
+    </script>
+
+    <!-- LIBRARIES ETC -->
+    <!-- Required for electron, otherwise it gives errors -->
+   <!--<script>window.$ = window.jQuery = require('assets/scripts/jquery-3.4.1.min.js');</script>
+    <script src="app.js"></script> -->
+
+    <script type="text/javascript" src="dist/libraries_main_bundle.min.js?v=9"></script>
+
+    <script type="text/javascript" src="game_config/default_config.js?v=7"></script>
+
+    <script type="text/javascript" src="dist/game_bundle.min.js?v=10"></script>
+    <script type="text/javascript" src="dist/libraries_secondary_bundle.min.js?v=7"></script>
+
+</head>
+<body>
+<div id="mainContainer">
+    <div id="mainContent">
+        <!--<div id="gameContent" class="extended-content">-->
+        <div id="gameContent" class="extended-content lang-en">
+            <div class="animation-holder">
+                <canvas id="staticArea" class="canvas" width="1920" height="500"></canvas>
+                <canvas id="gameArea"   class="canvas" width="1920" height="500"></canvas>
+                <canvas id="coverCanvas" class="canvas" width="1920" height="500"></canvas>
+                <div id="animations-attach-point"></div>
+            </div>
+            <div id="gameUI">
+                <div class="content-holder"></div>
+                <div class="overlay"></div>
+                <div class="fight-options not-displayed"> <!-- TODO these options should likely be dynamicalyl reworked to overlay when switching to those screens -->
+                    <div class="choice" data-type="auto_fire" cursorType="pointer">(1)AUTOAIM: <span>ON</span></div>
+                </div>
+                <div class="artillery-options not-displayed">
+                    <div class="choice" data-type="mg_1" cursorType="pointer">(2)MG</div>
+                    <div class="choice" data-type="gun_1" cursorType="pointer">(3)GUN</div>
+                </div>
+
+                <div id="dynamicDOM">
+                    <div class="artillery-time not-displayed">
+                        <div class="progress-bar vertical-progress-bar" data-progress="1"></div>
+                    </div>
+                    <div class="cursor-note not-displayed">Set up your aim!</div>
+                    <div class="overlay-text not-displayed">OVERLAY TEXT</div>
+                    <div class="notifications off hidden" cursorType="pointer" data-view="notifications" data-view-type="popup"><span></span>
+                    </div>
+                    <div class="notifications-holder off">
+                        <div ss-container>Notifications will show here</div>
+                    </div>
+                    <div class="notifications-new"><div class="close-all" cursorType="pointer" data-action-type="close_all_notifications"></div></div>
+                </div>
+                <div id="popup-tooltip"></div>
+                <div id="fps" style="display: none; position: absolute; bottom: 0; right: 0; color: white;">FPS: <span></span></div>
+
+                <div id="loading">
+                    <div class="loading-info">
+                        <div class="description">Loading, please wait...</div>
+                        <div class="progress progress-bar" data-progress="0"></div>
+                        <div class="loading-progress">0%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
